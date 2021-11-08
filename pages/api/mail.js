@@ -94,4 +94,16 @@ const sendEmail = async (req, res) => {
   return res.status(200).send({status: 'success'})
 }
 
-module.exports = allowCors(sendEmail)
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+const sleepAPI = async () => {
+  const sleepTimer = 5000;
+  console.log(`sleeping for ${sleepTimer}ms`);
+  await sleep(sleepTimer);
+  console.log(`I am awake.`);
+  return res.status(200).send({status: 'awake', sleptFor: sleepTimer});
+}
+
+module.exports = allowCors(sleepAPI)
