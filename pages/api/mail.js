@@ -103,7 +103,7 @@ const sleepAPI = async (req, res) => {
   console.log(`sleeping for ${sleepTimer}ms`);
   await sleep(sleepTimer);
   console.log(`I am awake.`);
-  return res.status(200).send({status: 'awake', sleptFor: sleepTimer});
+  return res.status(200).send({status: 'awake', sleptFor: sleepTimer, wokeUpAt: Date.now()});
 }
 
 module.exports = allowCors(sleepAPI)
