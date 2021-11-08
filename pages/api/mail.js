@@ -98,7 +98,7 @@ function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const sleepAPI = async () => {
+const sleepAPI = async (req, res) => {
   const sleepTimer = 5000;
   console.log(`sleeping for ${sleepTimer}ms`);
   await sleep(sleepTimer);
